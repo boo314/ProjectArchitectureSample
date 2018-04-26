@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,8 @@ namespace MVC
     {
         protected void Application_Start()
         {
+            DependencyResolver.SetResolver(new DIResolver());
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

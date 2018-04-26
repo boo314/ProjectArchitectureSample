@@ -48,18 +48,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrowdNetDBContext.cs" />
-    <Compile Include="Models\Abstract\BaseModel.cs" />
-    <Compile Include="Models\WootModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Abstract\BaseRepository.cs" />
-    <Compile Include="Repositories\Abstract\IRepository.cs" />
-    <Compile Include="Repositories\Abstract\IWootRepository.cs" />
     <Compile Include="Repositories\WootRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\Contracts.csproj">
+      <Project>{d036208e-f47b-4f75-95d2-8d41d70e0904}</Project>
+      <Name>Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseEntities\DatabaseEntities.csproj">
+      <Project>{20865d2e-1a00-466c-968c-11448ad32d0d}</Project>
+      <Name>DatabaseEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

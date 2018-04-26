@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Services.Abstract;
+﻿using BusinessLayer.Exceptions;
+using BusinessLayer.Services.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,15 @@ namespace MVC.Controllers
         {
             if (id.HasValue)
             {
-                var response = _wootService.GetWootById(id.Value);
+                try
+                {
+                    var response = _wootService.GetWootById(id.Value);
+                }
+                catch (WootException ex)
+                {
+                    ViewBag.ErrorMessage = ex.Message;
+                }
+                
             }
             return View();
         }

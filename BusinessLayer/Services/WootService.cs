@@ -1,7 +1,9 @@
 ﻿using _DataAccessLayer.Repositories.Abstract;
 using BusinessLayer.DTO;
+using BusinessLayer.Exceptions;
 using BusinessLayer.Mappers.Abstract;
 using BusinessLayer.Services.Abstract;
+using NLog;
 using System;
 
 namespace BusinessLayer.Services
@@ -10,6 +12,7 @@ namespace BusinessLayer.Services
     {
         private IWootRepository _wootRepository;
         private IWootMapper _wootMapper;
+        private Logger _logger = LogManager.GetCurrentClassLogger();
 
         public WootService(IWootRepository wootRepository, IWootMapper wootMapper)
         {
@@ -25,9 +28,10 @@ namespace BusinessLayer.Services
                 var result = _wootMapper.GetWootDTOFromWootModel(response);
                 return result;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                _logger.Error(ex);
+                throw new WootException("Cos sie ryplo");
             }
         }
     }
