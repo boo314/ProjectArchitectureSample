@@ -16,13 +16,25 @@ namespace DI
 {
     public class DIResolver : IDependencyResolver
     {
-
-        private readonly IKernel _kernel;
+        private IKernel _kernel;
 
         public DIResolver()
         {
             _kernel = new StandardKernel();
             AddBindings();
+        }
+
+        public DIResolver(IKernel kernel)
+        {
+            _kernel = kernel;
+            AddBindings();
+        }
+
+        public IKernel GetDefaultKernel()
+        {
+            _kernel = new StandardKernel();
+            AddBindings();
+            return _kernel;
         }
 
         public object GetService(Type serviceType)
