@@ -24,7 +24,7 @@ namespace API.Attributes
                 actionContext.Response.StatusCode = System.Net.HttpStatusCode.Unauthorized;
             }
 
-            base.OnActionExecuting(actionContext);
+            base.OnActionExecuting(actionContext);  
         }
     }
 }

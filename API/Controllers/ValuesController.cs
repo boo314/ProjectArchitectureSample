@@ -14,9 +14,7 @@ namespace API.Controllers
         [TokenValidation]
         public IHttpActionResult Get()
         {
-            return Ok();
+            return Content(HttpStatusCode.OK, "");
         }
-
-
     }
 }

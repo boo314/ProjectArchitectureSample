@@ -3,3 +3,5 @@
 /packages
 /.vs
 /.axoCover
+*/node_modules
+/MVC/Frontend/Styles/style.css
